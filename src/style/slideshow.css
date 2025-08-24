@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Segoe UI;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.container {
+    /* margin: 16px; */
+    width: 100%;
+    position: relative;
+    padding: 16px 16px 12px;
+}
+
+.slide-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.slide {
+    display: flex;
+    height: 100%;
+}
+
+.slide-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    min-width: 100%;
+    color: #fff;
+}
+
+
+
+.slide-right img {
+    height: 270px;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+
+.slide-left {
+    flex-shrink: 0;
+    width: 568px;
+    padding: 36px;
+}
+
+.king-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.slide-title {
+    font-size: 3.2rem;
+    font-family: Segoe UI;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.slide-desc {
+    margin-bottom: 24px;
+}
+
+.button {
+    font-size: 1.4rem;
+    font-weight: 700;
+    min-width: 124px;
+    border: 2px solid #fff;
+    padding: 4px 10px;
+    width: max-content;
+    transition: all ease .2s;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.button a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: Segoe UI;
+    color: inherit;
+}
+
+.button:hover {
+    background-color: #fff;
+}
+
+.button.btn8a0aff:hover {
+    color: #8a0aff;
+}
+
+.button.btn6828fa:hover {
+    color: #6828fa;
+}
+
+.button.btn62877FA:hover {
+    color: #2877FA;
+}
+
+.button.btn7612ff:hover {
+    color: #7612ff;
+}
+
+.button.btnfe215e:hover {
+    color: #fe215e;
+}
+
+.button.btn007efe:hover {
+    color: #007efe;
+}
+
+.prev-btn,
+.next-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    top: 50%;
+    box-shadow: 0 3px 6px #00000029;
+    transform: translateY(-50%);
+
+}
+
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.slice-pagination {
+    display: flex;
+    gap: 10px;
+    margin-left: 44px;
+}
+
+.slice-pagination li {
+    list-style: none;
+    height: 8px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: #dce0e3;
+    opacity: 1;
+    transition: all .3s linear;
+    cursor: pointer;
+}
+
+li.active {
+    width: 50px;
+    background-color: #9aa6af;
+}
