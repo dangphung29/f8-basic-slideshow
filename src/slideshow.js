@@ -108,7 +108,7 @@ document.addEventListener('mouseup', () => {
             break
         default:
             translateX = currentSlide * -100
-            slide.style.transform = `translateX(${translateX}%)`
+            slideTo(currentSlide, false)
     }
 })
 
