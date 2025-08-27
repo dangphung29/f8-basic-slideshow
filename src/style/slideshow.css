@@ -48,6 +48,7 @@ img {
 .slide {
     display: flex;
     height: 100%;
+    border-radius: 16px;
 }
 
 .slide-item {
@@ -57,6 +58,7 @@ img {
     height: 100%;
     min-width: 100%;
     color: #fff;
+    border-radius: 16px;
 }
 
 
