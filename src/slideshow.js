@@ -3,9 +3,12 @@ const nextBtn = document.querySelector('.next-btn')
 const slideWraper = document.querySelector('.slide-wrapper')
 const slide = document.querySelector('.slide')
 const pagination = Array.from(document.querySelectorAll('.slice-pagination li'))
+const slideLink = document.querySelectorAll('.slide-link')
 let currentSlide = 1
 let disable = false
 let timeID
+let startMove
+let moved
 
 
 const slideItems = Array.from(document.querySelectorAll('.slide-item'))
@@ -25,8 +28,12 @@ let firstSlide = 0
 
 function slideTo(slideIndex, immediate = true) {
     const translateX = slideIndex * -100
-    slide.style.transition = immediate ? 'none' : '0.5s ease'
+    slideImmediate(immediate)
     slide.style.transform = `translateX(${translateX}%)`
+}
+
+function slideImmediate(immediate = true) {
+    slide.style.transition = immediate ? 'none' : '0.5s ease'
 }
 
 function setPagination(currentSlide) {
@@ -86,6 +93,36 @@ slide.addEventListener('transitionend', () => {
 slide.addEventListener('mouseenter', removeAutoSlide)
 slide.addEventListener('mouseleave', autoSlider)
 
+slide.addEventListener('mousedown', (e) => {
+    startMove = e.clientX
+    document.addEventListener('mousemove', handleMouseMove)
+})
+document.addEventListener('mouseup', () => {
+    document.removeEventListener('mousemove', handleMouseMove)
+    switch (true) {
+        case moved > 200:
+            backSlide()
+            break
+        case moved < -200:
+            nextSlide()
+            break
+        default:
+            translateX = currentSlide * -100
+            slide.style.transform = `translateX(${translateX}%)`
+    }
+})
+
+function handleMouseMove(e) {
+    let nowMove = e.clientX
+    moved = nowMove - startMove
+    const translateX = currentSlide * -100
+
+    slideImmediate()
+    slide.style.transform = `translateX(calc(${translateX}% + ${moved}px))`
+    console.log(moved);
+
+}
+
 slideTo(currentSlide)
 autoSlider()
 
@@ -96,4 +133,11 @@ pagination.map((pageSlide, index) => {
         slideTo(currentSlide, false)
         setPagination(currentSlide)
     })
+})
+
+slideLink.forEach(link => {
+    link.onclick = e => {
+        moved !== 0 && e.preventDefault()
+    }
+    console.log(link.onclick);
 })

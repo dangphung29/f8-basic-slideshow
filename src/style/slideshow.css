@@ -18,8 +18,19 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    user-drag: none;
+    -webkit-user-drag: none;
 }
 
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 .container {
     /* margin: 16px; */
@@ -111,7 +122,7 @@ a {
     color: #6828fa;
 }
 
-.button.btn62877FA:hover {
+.button.btn2877FA:hover {
     color: #2877FA;
 }
 
